@@ -7,8 +7,23 @@ import {ALL_COUNTRIES} from "../urls";
 import {useNavigate} from 'react-router-dom'
 
 const HomePage = ({countries, setCountries}) => {
+
     const [filteredCountries, setFilteredCountries] = useState(countries)
+    console.log(countries)
+
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (countries.length === 0) {
+
+            axios.get(ALL_COUNTRIES)
+                .then(({data}) => {
+                    setCountries(data)
+                })
+
+        }}, [])
+
+
     const handleSearch = (search, region) => {
         let data = [...countries]
 
@@ -23,12 +38,7 @@ const HomePage = ({countries, setCountries}) => {
         setFilteredCountries(data)
     }
 
-    useEffect(() => {
-        if (!countries.length) {
-        axios.get(ALL_COUNTRIES)
-            .then(({data}) => setCountries(data))
-            debugger
-    }}, [])
+
     return (
         <div>
             <Controls onSearch={handleSearch}/>

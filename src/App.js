@@ -7,7 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import {useState} from "react";
 
 function App() {
-    debugger
+
     const [countries, setCountries] = useState([]);
 
 

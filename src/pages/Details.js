@@ -12,7 +12,6 @@ const Details = () => {
     const navigate = useNavigate()
     const name = useParams()
 
-    console.log(country)
     useEffect(() => {
         axios.get(SearchByCountry(name.name))
             .then(({data}) => {

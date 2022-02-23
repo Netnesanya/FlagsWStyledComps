@@ -9,6 +9,12 @@ const InfoImage = styled.img``
 
 const InfoTitle = styled.h1``
 
+const ListGroup = styled.div``
+
+const List = styled.ul``
+
+const ListItem = styled.li``
+
 
 
 const Info = (props) => {
@@ -21,7 +27,9 @@ const Info = (props) => {
         region,
         subregion,
         topLevelDomain,
-        currencies = [], languages = [], borders = []
+        currencies = [],
+        languages = [],
+        borders = []
     } = props
 
 
@@ -33,6 +41,43 @@ const Info = (props) => {
                 <InfoTitle>
 
                 </InfoTitle>
+                <ListGroup>
+                    <List>
+                        <ListItem>
+                            <b>Native Name:</b> {nativeName}
+                        </ListItem>
+                          <ListItem>
+                            <b>Population:</b> {population}
+                        </ListItem>
+                          <ListItem>
+                            <b>Region:</b> {region}
+                        </ListItem>
+                          <ListItem>
+                            <b>Sub Region:</b> {subregion}
+                        </ListItem>
+                          <ListItem>
+                            <b>Capital:</b> {capital}
+                        </ListItem>
+                          <ListItem>
+                            <b>Top Level Domain:</b> {topLevelDomain.map(el => (<span key={el}>el</span>))}
+                        </ListItem>
+                          <ListItem>
+                            <b>Native Name:</b> {nativeName}
+                        </ListItem>
+                                              <ListItem>
+                            <b>Native Name:</b> {nativeName}
+                        </ListItem>
+                                              <ListItem>
+                            <b>Native Name:</b> {nativeName}
+                        </ListItem>
+                                              <ListItem>
+                            <b>Native Name:</b> {nativeName}
+                        </ListItem>
+                    </List>
+                    <List>
+
+                    </List>
+                </ListGroup>
             </div>
         </Wrapper>
     );
