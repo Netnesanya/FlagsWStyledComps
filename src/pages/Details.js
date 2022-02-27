@@ -5,6 +5,7 @@ import axios from "axios";
 import {IoArrowBack} from 'react-icons/io5'
 import {SearchByCountry} from "../urls";
 import {Button} from "../components/Button";
+import Info from "../components/Info";
 
 
 const Details = () => {
@@ -16,7 +17,6 @@ const Details = () => {
         axios.get(SearchByCountry(name.name))
             .then(({data}) => {
                 setCountry(data[0])
-                //console.log(data[0])
             })
     }, [name])
 
@@ -25,7 +25,8 @@ const Details = () => {
             <Button onClick={() => navigate(-1)}>
                 <IoArrowBack /> Back
             </Button>
-            Details {name.name}
+            {country && (<Info {...country}/>)}
+
         </div>
     );
 };

@@ -9,19 +9,22 @@ import {useNavigate} from 'react-router-dom'
 const HomePage = ({countries, setCountries}) => {
 
     const [filteredCountries, setFilteredCountries] = useState(countries)
-    console.log(countries)
+
 
     const navigate = useNavigate()
 
     useEffect(() => {
         if (countries.length === 0) {
-
             axios.get(ALL_COUNTRIES)
                 .then(({data}) => {
                     setCountries(data)
                 })
 
         }}, [])
+
+    useEffect(() => {
+        handleSearch()
+    }, [countries])
 
 
     const handleSearch = (search, region) => {
